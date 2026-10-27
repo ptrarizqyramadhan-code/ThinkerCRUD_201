@@ -42,3 +42,16 @@ def ambil_semua_data():
     hasil = cur.fetchall()
     conn.close()
     return hasil
+
+# ---------- LOGIKA PREDIKSI ----------
+def tentukan_prediksi(biologi, fisika, inggris):
+    nilai_tertinggi = max(biologi, fisika, inggris)
+    hasil = []
+    if biologi == nilai_tertinggi:
+        hasil.append("Kedokteran")
+    if fisika == nilai_tertinggi:
+        hasil.append("Teknik")
+    if inggris == nilai_tertinggi:
+        hasil.append("Bahasa")
+    # Jika ada nilai tertinggi yang sama, tampilkan semuanya
+    return " / ".join(hasil)
